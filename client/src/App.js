@@ -37,10 +37,12 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
-          <Route exact path="/" component={Landing} />
+
           <section className="container">
+          
             <Alert />
             <Switch>
+              <Route exact path="/" component={Landing} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <PrivateRoute exact path="/profiles" component={Profiles} />
