@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Particles from "react-particles-js";
 
+
 const particlesOptions = {
   particles: {
     number: {
