@@ -13,8 +13,8 @@ import Profiles from "../src/components/Profiles/Profiles";
 import Profile from "./components/Profile/Profile";
 import Posts from "./components/Posts/Posts";
 import Post from "./components/Post/Post";
-import NotFound from "./components/Layout/NotFound";
-import Particles from "react-particles-js";
+// import NotFound from "./components/Layout/NotFound";
+// import Particles from "react-particles-js";
 
 // Redux
 import { Provider } from "react-redux";
@@ -37,10 +37,10 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
+          <Route exact path="/" component={Landing} />
           <section className="container">
             <Alert />
             <Switch>
-              <Route exact path="/" component={Landing} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <PrivateRoute exact path="/profiles" component={Profiles} />
