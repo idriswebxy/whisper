@@ -25,7 +25,7 @@ const Landing = ({ isAuthenticated }) => {
   }
 
   return (
-    <section className="">
+    <section>
       <Particles className="particles" params={particlesOptions} />
       <div className="dark-overlay">
         <div className="landing-inner">
