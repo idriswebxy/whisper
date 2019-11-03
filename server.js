@@ -13,7 +13,9 @@ app.use(cors());
 
 mongo.connect(process.env.MONGODB, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
 }, (err, client) => {
 if (err) {
   console.error(err)
