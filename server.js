@@ -3,7 +3,6 @@ const connectDB = require("./config/db");
 const cors = require("cors");
 require("dotenv").config();
 const path = require("path");
-const mongo = require("mongodb").MongoClient
 
 
 
@@ -11,23 +10,7 @@ const app = express();
 
 app.use(cors());
 
-mongo.connect(process.env.MONGODB, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-}, (err, client) => {
-if (err) {
-  console.error(err)
-  return
-}
-  console.log("MongoDB Connected...");
-  
-})
-
-
-// connectDB();
-
+connectDB();
 
 app.use(express.json({ extended: false }));
 
