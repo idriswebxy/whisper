@@ -1,9 +1,9 @@
 const express = require("express");
-// const connectDB = require("./config/db");
+const connectDB = require("./config/db");
 const cors = require("cors");
 require("dotenv").config();
 const path = require("path");
-const mongo = require('mongodb').MongoClient
+
 
 
 
@@ -11,18 +11,8 @@ const app = express();
 
 app.use(cors());
 
-// connectDB();
+connectDB();
 
-mongo.connect("mongodb://tobi:l0c0_m0c0@ds241288.mlab.com:41288/apex-1", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}, (err, client) => {
-if (err) {
-  console.error(err)
-  return
-}
-  console.log("MongoDB Connected...")
-})
 
 app.use(express.json({ extended: false }));
 
