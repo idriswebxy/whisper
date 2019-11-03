@@ -5,7 +5,7 @@ require("dotenv").config();
 const path = require("path");
 const mongoose = require("mongoose");
 const config = require("config");
-const db = config.get("MONGODB_URI");
+// const db = config.get("MONGODB_URI");
 
 
 
@@ -17,8 +17,9 @@ const app = express();
 
 app.use(cors());
 
+const url = "mongodb://heroku_zd227265:fv77ncl95kaas6eekjihm0jo91@ds241308.mlab.com:41308/heroku_zd227265"
 
-mongoose.connect(db, {
+mongoose.connect(url, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
