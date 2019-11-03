@@ -14,7 +14,7 @@ const app = express();
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI, {
+    await mongoose.connect("mongodb://heroku_zd227265:fv77ncl95kaas6eekjihm0jo91@ds241308.mlab.com:41308/heroku_zd227265", {
       useNewUrlParser: true,
       useCreateIndex: true,
       useFindAndModify: false,
