@@ -1,13 +1,35 @@
 const express = require("express");
-const config = require("config");
-const connectDB = require("./config/db");
+// const connectDB = require("./config/db");
 // const cors = require("cors");
-// require("dotenv").config();
+require("dotenv").config();
 const path = require("path");
+const mongoose = require("mongoose");
+const config = require("config");
+const db = config.get("MONGODB_URI");
 
 
 
 const app = express();
+
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect(db, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+      useUnifiedTopology: true
+    });
+
+    console.log("MongoDB Connected...");
+  } 
+  catch (err) {
+    console.error(err.message);
+
+    process.exit(1);
+  }
+};
+
 
 // app.use(cors());
 
