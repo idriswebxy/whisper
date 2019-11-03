@@ -1,6 +1,6 @@
 const express = require("express");
 // const connectDB = require("./config/db");
-// const cors = require("cors");
+const cors = require("cors");
 require("dotenv").config();
 const path = require("path");
 const mongoose = require("mongoose");
@@ -12,28 +12,19 @@ const db = config.get("MONGODB_URI");
 const app = express();
 
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect("mongodb://heroku_zd227265:fv77ncl95kaas6eekjihm0jo91@ds241308.mlab.com:41308/heroku_zd227265", {
-      useNewUrlParser: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-      useUnifiedTopology: true
-    });
-
-    console.log("MongoDB Connected...");
-  } 
-  catch (err) {
-    console.error(err.message);
-
-    process.exit(1);
-  }
-};
 
 
-// app.use(cors());
 
-connectDB();
+app.use(cors());
+
+
+mongoose.connect(db, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true
+}, console.log("MongoDB Connected..."))
+
 
 app.use(express.json({ extended: false }));
 
