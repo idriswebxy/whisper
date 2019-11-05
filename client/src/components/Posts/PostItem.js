@@ -23,11 +23,12 @@ const PostItem = ({
     <div>
       <p className='my-1'>{text}</p>
       <p className='post-date'>
-        Posted on <Moment format='YYYY/MM/DD'>{date}</Moment>
+        Posted on <Moment format='MM/DD/YYYY'>{date}</Moment>
       </p>
 
       {showActions && (
         <Fragment>
+
           <button
             onClick={() => addLike(_id)}
             type='button'
@@ -36,13 +37,16 @@ const PostItem = ({
             <i className='fas fa-thumbs-up' />{' '}
             <span>{likes.length > 0 && <span>{likes.length}</span>}</span>
           </button>
+
           <button
             onClick={() => removeLike(_id)}
             type='button'
             className='btn btn-light'
           >
-            <i className='fas fa-thumbs-down' />
+            <i className='fas fa-thumbs-down' />{' '}
+            {/* <div>{likes.length > 0 && <span>{likes.length}</span>}</div> */}
           </button>
+
           <Link to={`/posts/${_id}`} class='btn btn-primary'>
             Reply{' '}
             {comments.length > 0 && (

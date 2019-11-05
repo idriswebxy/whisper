@@ -10,6 +10,8 @@ const config = require("config");
 
 const jwtSecret = "mysecrettoken";
 
+
+
 // register user
 router.post(
   "/",

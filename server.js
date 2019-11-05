@@ -8,11 +8,7 @@ const config = require("config");
 // const db = config.get("MONGODB_URI");
 
 
-
 const app = express();
-
-
-
 
 
 app.use(cors());

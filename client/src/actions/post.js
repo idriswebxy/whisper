@@ -4,6 +4,7 @@ import {
   GET_POSTS,
   POST_ERROR,
   UPDATE_LIKES,
+  UPDATE_UNLIKES,
   DELETE_POST,
   ADD_POST,
   GET_POST,
@@ -42,7 +43,8 @@ export const addLike = id => async dispatch => {
       type: UPDATE_LIKES,
       payload: { id, likes: res.data }
     });
-  } catch (err) {
+  } 
+  catch (err) {
     dispatch({
       type: POST_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
@@ -54,14 +56,17 @@ export const addLike = id => async dispatch => {
 
 // Remove like
 export const removeLike = id => async dispatch => {
+  console.log("unlike triggered " + id)
   try {
     const res = await axios.put(`/api/posts/unlike/${id}`);
-
+    console.log("unlike sent to api")
     dispatch({
       type: UPDATE_LIKES,
       payload: { id, likes: res.data }
     });
-  } catch (err) {
+  } 
+  catch (err) {
+    console.log("unlike error")
     dispatch({
       type: POST_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
@@ -90,6 +95,8 @@ export const deletePost = id => async dispatch => {
   }
 };
 
+
+
 // Add post
 export const addPost = formData => async dispatch => {
   const config = {
@@ -107,13 +114,15 @@ export const addPost = formData => async dispatch => {
     });
 
     dispatch(setAlert("Post Created", "success"));
-  } catch (err) {
+  } 
+  catch (err) {
     dispatch({
       type: POST_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
 };
+
 
 
 // Get post
