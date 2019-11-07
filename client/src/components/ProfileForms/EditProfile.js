@@ -6,10 +6,10 @@ import { createProfile, getCurrentProfile } from "../../actions/profile";
 
 const EditProfile = ({ profile: { profile, loading }, createProfile, history, getCurrentProfile }) => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    location: "",
-    bio: "",
+    nickName: "",
+    // lastName: "",
+    // location: "",
+    // bio: "",
   });
 
 
@@ -20,15 +20,15 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, history, ge
     getCurrentProfile();
 
     setFormData({
-      firstName: loading || !profile.firstName ? "" : profile.firstName,
-      lastName: loading || !profile.lastName ? "" : profile.lastName,
-      location: loading || !profile.location ? "" : profile.location,
-      bio: loading || !profile.bio ? "" : profile.bio,
+      nickName: loading || !profile.nickName ? "" : profile.nickName,
+      // lastName: loading || !profile.lastName ? "" : profile.lastName,
+      // location: loading || !profile.location ? "" : profile.location,
+      // bio: loading || !profile.bio ? "" : profile.bio,
     });
   }, [loading])
 
 
-  const { firstName, lastName, location, bio } = formData;
+  const { nickName } = formData;
 
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -42,27 +42,27 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, history, ge
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Edit Profile</h1>
+      <h1 className="large text-primary">Edit Nickname</h1>
       {/* <p className="lead">
         <i className="fas fa-user"></i> Let's get some information to make your
         profile
       </p> */}
       <form className="form" onSubmit={e => onSubmit(e)}>
-        {/* First Name */}
+        {/* Nick Name */}
         <div className="form-group">
           <input
             type="text"
-            placeholder="First Name"
-            name="firstName"
-            value={firstName}
+            placeholder="Nickname"
+            name="nickName"
+            value={nickName}
             onChange={e => onChange(e)}
           /> 
-          <small className="form-text">First Name</small>
+          {/* <small className="form-text">Nick Name</small> */}
         </div>
        
 
         {/* Last Name */}
-        <div className="form-group">
+        {/* <div className="form-group">
           <input
             type="text"
             placeholder="Last Name"
@@ -71,10 +71,10 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, history, ge
             onChange={e => onChange(e)}
           />
           <small className="form-text">Last Name</small>
-        </div>
+        </div> */}
         
         {/* Location */}
-        <div className="form-group">
+        {/* <div className="form-group">
           <input
             type="text"
             placeholder="Location"
@@ -85,9 +85,9 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, history, ge
           <small className="form-text">
             City & state suggested (eg. Boston, MA)
           </small>
-        </div>
+        </div> */}
         {/* Bio */}
-        <div className="form-group">
+        {/* <div className="form-group">
           <textarea
             placeholder="A short bio of yourself"
             name="bio"
@@ -95,7 +95,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, history, ge
             onChange={e => onChange(e)}
           ></textarea>
           <small className="form-text">Tell us a little about yourself</small>
-        </div>
+        </div> */}
         <input type="submit" className="btn btn-primary my-1" />
         <Link className="btn btn-light my-1" to="/dashboard">
           Go Back

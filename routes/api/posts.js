@@ -25,21 +25,25 @@ router.post(
   ],
   async (req, res) => {
     const errors = validationResult(req);
+
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
 
     try {
-      const user = await User.findById(req.user.id).select("-password");
+      // const user = await User.findById(req.user.id).select("-password");
+
+      const user = await Profile.findOne({ user: req.user.id });
 
       const newPost = new Post({
         text: req.body.text,
-        name: user.name,
+        nickName: user.nickName,
         avatar: user.avatar,
         user: req.user.id
       });
 
       const post = await newPost.save();
+      console.log(post)
 
       res.json(post);
     } catch (err) {

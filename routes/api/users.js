@@ -16,9 +16,6 @@ const jwtSecret = "mysecrettoken";
 router.post(
   "/",
   [
-    check("name", "Name is required!")
-      .not()
-      .isEmpty(),
     check("email", "Please enter a valid email!").isEmail(),
     check(
       "password",
@@ -33,7 +30,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, password } = req.body;
+    const { email, password } = req.body;
 
     try {
       let user = await User.findOne({ email });
@@ -49,7 +46,6 @@ router.post(
       });
 
       user = new User({
-        name,
         email,
         avatar,
         password
@@ -76,7 +72,8 @@ router.post(
           res.json({ token });
         }
       );
-    } catch (err) {
+    } 
+    catch (err) {
       console.log(err.message);
       res.status(500).send("Server error");
     }

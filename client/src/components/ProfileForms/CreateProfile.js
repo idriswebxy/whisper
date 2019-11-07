@@ -6,16 +6,14 @@ import { createProfile } from "../../actions/profile";
 
 const CreateProfile = ({ createProfile, history }) => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    location: "",
-    bio: "",
+    nickName: "",
+    
   });
 
 
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
-  const { firstName, lastName, location, bio } = formData;
+  const { nickName } = formData;
 
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -31,21 +29,20 @@ const CreateProfile = ({ createProfile, history }) => {
     <Fragment>
       <h1 className="large text-primary">Create Your Profile</h1>
       <p className="lead">
-        <i className="fas fa-user"></i> Let's get some information to make your
-        profile
+        <i className="fas fa-user"></i> Add a Nickname
       </p>
       <form className="form" onSubmit={e => onSubmit(e)}>
         {/* First Name */}
         <div className="form-group">
           <input
             type="text"
-            placeholder="First Name"
-            name="firstName"
-            value={firstName}
+            placeholder="Nickname"
+            name="nickName"
+            value={nickName}
             onChange={e => onChange(e)}
           />
         </div>
-        {/* Last Name */}
+        {/* Last Name
         <div className="form-group">
           <input
             type="text"
@@ -55,7 +52,7 @@ const CreateProfile = ({ createProfile, history }) => {
             onChange={e => onChange(e)}
           />
         </div>
-        {/* Location */}
+      
         <div className="form-group">
           <input
             type="text"
@@ -68,7 +65,7 @@ const CreateProfile = ({ createProfile, history }) => {
             City & state suggested (eg. Boston, MA)
           </small>
         </div>
-        {/* Bio */}
+       
         <div className="form-group">
           <textarea
             placeholder="A short bio of yourself"
@@ -77,7 +74,7 @@ const CreateProfile = ({ createProfile, history }) => {
             onChange={e => onChange(e)}
           ></textarea>
           <small className="form-text">Tell us a little about yourself</small>
-        </div>
+        </div> */}
         <input type="submit" className="btn btn-primary my-1" />
         <Link className="btn btn-light my-1" to="/dashboard">
           Go Back

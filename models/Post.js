@@ -10,7 +10,7 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
-  name: {
+  nickName: {
     type: String
   },
   avatar: {
@@ -34,7 +34,7 @@ const PostSchema = new Schema({
         type: String,
         required: true
       },
-      name: {
+      nickName: {
         type: String
       },
       avatar: {

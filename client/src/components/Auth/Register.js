@@ -9,13 +9,12 @@ import PropTypes from "prop-types";
 const Register = ({ setAlert, register, isAuthenticated }) => {
   
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
     password2: ""
   });
 
-  const { name, email, password, password2 } = formData;
+  const { email, password, password2 } = formData;
 
 
   const onChange = e =>
@@ -29,7 +28,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
        setAlert("Passwords do not match!", "danger");
     } 
     else {
-      register({ name, email, password })
+      register({ email, password })
       console.log("Success!");
       
     }
@@ -48,7 +47,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         <i className="fas fa-user"></i> Create Your Account
       </p>
       <form className="form" onSubmit={e => onSubmit(e)}>
-        <div className="form-group">
+        {/* <div className="form-group">
           <input
             type="text"
             placeholder="Name"
@@ -57,7 +56,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             onChange={e => onChange(e)}
             required
           />
-        </div>
+        </div> */}
         <div className="form-group">
           <input
             type="email"
@@ -67,10 +66,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             onChange={e => onChange(e)}
             required
           />
-          <small className="form-text">
+          {/* <small className="form-text">
             This site uses Gravatar so if you want a profile image, use a
             Gravatar email
-          </small>
+          </small> */}
         </div>
 
         <div className="form-group">

@@ -29,7 +29,8 @@ const Landing = ({ isAuthenticated }) => {
       <Particles className="particles" params={particlesOptions} />
       <div className="dark-overlay">
         <div className="landing-inner">
-          <h1 className="x-large">SocialHub</h1>
+          <h1 className="x-large">Whisper</h1>
+          <h4></h4>
           <p className="lead"></p>
           <div className="buttons">
             <Link to="/register" className="btn btn-primary">

@@ -20,7 +20,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
     <Fragment>
       <h1 className="large text-primary">Posts</h1>
       <p className="lead">
-        <i className="fa fa-user" /> Welcome to the Community
+        <i className="fa fa-user" /> Share your thoughts
       </p>
       <PostForm />
       <div className="posts">
