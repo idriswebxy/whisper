@@ -15,8 +15,7 @@ const PostItem = ({
 }) => (
   <div className="post bg-white p-1 my-1">
     <div>
-      {/* <img src="https://img.icons8.com/ios-glyphs/20/000000/user--v1.png" /> */}
-      <i className="material-icons">person</i>
+      <i className="fas fa-user fa-2x" />
       <h4>{nickName}</h4>
     </div>
     <div>
