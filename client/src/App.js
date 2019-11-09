@@ -9,7 +9,6 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import PrivateRoute from "./components/Routing/PrivateRoute";
 import CreateProfile from "./components/ProfileForms/CreateProfile";
 import EditProfile from "./components/ProfileForms/EditProfile";
-// import Profiles from "../src/components/Profiles/Profiles";
 import Profile from "./components/Profile/Profile";
 import Posts from "./components/Posts/Posts";
 import Post from "./components/Post/Post";
