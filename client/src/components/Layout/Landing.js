@@ -20,6 +20,7 @@ const particlesOptions = {
 
 
 const Landing = ({ isAuthenticated }) => {
+  
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />;
   }
@@ -30,7 +31,7 @@ const Landing = ({ isAuthenticated }) => {
       <div className="dark-overlay">
         <div className="landing-inner">
           <h1 className="x-large">Whisper</h1>
-          <h4>Share your daily thoughts and ideas</h4>
+          <h4>Share your daily thoughts</h4>
           <p className="lead"></p>
           <div className="buttons">
             <Link to="/register" className="btn btn-primary">
