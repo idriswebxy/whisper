@@ -13,7 +13,7 @@ const app = express();
 
 app.use(cors());
 
-const url = "mongodb://heroku_zd227265:fv77ncl95kaas6eekjihm0jo91@ds241308.mlab.com:41308/heroku_zd227265"
+const url = "mongodb://tobi:l0c0m0c0@ds141228.mlab.com:41228/heroku_n4jj56l3"
 
 mongoose.connect(url, {
   useNewUrlParser: true,
