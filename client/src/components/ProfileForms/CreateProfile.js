@@ -27,7 +27,7 @@ const CreateProfile = ({ createProfile, history }) => {
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Create Your Profile</h1>
+      <h1 className="large text-primary">Create a Nickname</h1>
       <p className="lead">
         <i className="fas fa-user"></i> Add a Nickname
       </p>
