@@ -7,10 +7,7 @@ const gravatar = require("gravatar");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 
-
 const jwtSecret = "mysecrettoken";
-
-
 
 // register user
 router.post(
@@ -20,10 +17,10 @@ router.post(
     check(
       "password",
       "Please enter a password with 6 or more characters!"
-    ).isLength({ min: 6 })
-  ], 
+    ).isLength({ min: 6 }),
+  ],
   async (req, res) => {
-
+    console.log(req.body);
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
@@ -42,13 +39,13 @@ router.post(
       const avatar = gravatar.url(email, {
         s: "200",
         r: "pg",
-        d: "mm"
+        d: "mm",
       });
 
       user = new User({
         email,
         avatar,
-        password
+        password,
       });
 
       const salt = await bcrypt.genSalt(10);
@@ -59,21 +56,15 @@ router.post(
 
       const payload = {
         user: {
-          id: user.id
-        }
+          id: user.id,
+        },
       };
 
-      jwt.sign(
-        payload,
-       jwtSecret,
-        { expiresIn: 360000 },
-        (err, token) => {
-          if (err) throw err; 
-          res.json({ token });
-        }
-      );
-    } 
-    catch (err) {
+      jwt.sign(payload, jwtSecret, { expiresIn: 360000 }, (err, token) => {
+        if (err) throw err;
+        res.json({ token });
+      });
+    } catch (err) {
       console.log(err.message);
       res.status(500).send("Server error");
     }
