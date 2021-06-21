@@ -4,13 +4,13 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
 
-
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
-
   const authLinks = (
     <ul>
       <li>
-        <Link to="/posts">Posts</Link>
+        <Link to="/posts">
+          <i className="bi bi-newspaper"></i> Posts
+        </Link>
       </li>
       <li>
         <Link to="/dashboard">
@@ -27,7 +27,6 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     </ul>
   );
 
-  
   const guestLinks = (
     <ul>
       <li>
@@ -42,7 +41,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   return (
     <nav className="navbar bg-dark">
       <h1>
-        <Link to="/">Whisper</Link>
+        <Link to="/">
+          Whisper <i class="bi bi-chat-text"></i>
+        </Link>
       </h1>
       {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
@@ -53,14 +54,11 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
 Navbar.propTypes = {
   logout: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth
+const mapStateToProps = (state) => ({
+  auth: state.auth,
 });
 
-export default connect(
-  mapStateToProps,
-  { logout }
-)(Navbar);
+export default connect(mapStateToProps, { logout })(Navbar);
