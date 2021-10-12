@@ -12,8 +12,6 @@ import EditProfile from "./components/ProfileForms/EditProfile";
 import Profile from "./components/Profile/Profile";
 import Posts from "./components/Posts/Posts";
 import Post from "./components/Post/Post";
-// import NotFound from "./components/Layout/NotFound";
-// import Particles from "react-particles-js";
 
 // Redux
 import { Provider } from "react-redux";

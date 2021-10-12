@@ -30,10 +30,14 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
-        <Link to="/register">Register</Link>
+        <Link to="/register">
+          <i className="bi bi-box-arrow-in-right"></i> Register
+        </Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/login">
+          <i className="bi bi-box-arrow-in-right"></i> Login
+        </Link>
       </li>
     </ul>
   );
@@ -42,7 +46,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <nav className="navbar bg-dark">
       <h1>
         <Link to="/">
-          Whisper <i class="bi bi-chat-text"></i>
+          Whisper <i className="bi bi-chat-text"></i>
         </Link>
       </h1>
       {!loading && (
